@@ -15,6 +15,7 @@ export const config = {
     cms: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8083',
     gateway: process.env.NEXT_PUBLIC_API_GATEWAY_URL || 'http://localhost:8080',
     chaosBackend: process.env.NEXT_PUBLIC_CHAOS_BACKEND_URL || 'http://localhost:8081',
+    userManagement: process.env.NEXT_PUBLIC_USER_MANAGEMENT_URL || 'http://localhost:8082',
   },
 
   // Monitoring
@@ -28,6 +29,7 @@ export const config = {
     apiGateway: process.env.NEXT_PUBLIC_API_GATEWAY_HEALTH_URL || 'http://localhost:8080/health',
     chaosBackend: process.env.NEXT_PUBLIC_CHAOS_BACKEND_HEALTH_URL || 'http://localhost:8081/health',
     cmsService: process.env.NEXT_PUBLIC_CMS_SERVICE_HEALTH_URL || 'http://localhost:8083/health',
+    userManagement: process.env.NEXT_PUBLIC_USER_MANAGEMENT_HEALTH_URL || 'http://localhost:8082/health',
     prometheus: process.env.NEXT_PUBLIC_PROMETHEUS_HEALTH_URL || 'http://localhost:9091/-/healthy',
     grafana: process.env.NEXT_PUBLIC_GRAFANA_HEALTH_URL || 'http://localhost:3001/api/health',
   },
@@ -48,6 +50,11 @@ export const config = {
       name: 'CMS Service',
       url: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8083',
       healthUrl: process.env.NEXT_PUBLIC_CMS_SERVICE_HEALTH_URL || 'http://localhost:8083/health',
+    },
+    userManagement: {
+      name: 'User Management',
+      url: process.env.NEXT_PUBLIC_USER_MANAGEMENT_URL || 'http://localhost:8082',
+      healthUrl: process.env.NEXT_PUBLIC_USER_MANAGEMENT_HEALTH_URL || 'http://localhost:8082/health',
     },
     prometheus: {
       name: 'Prometheus',

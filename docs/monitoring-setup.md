@@ -53,6 +53,7 @@ npm run dev
 ### Monitored Services
 - **API Gateway** (Port 8080)
 - **Chaos Backend** (Port 8081)
+- **User Management** (Port 8082)
 - **CMS Service** (Port 8083)
 - **Prometheus** (Port 9091)
 - **Grafana** (Port 3001)
@@ -81,6 +82,12 @@ scrape_configs:
   - job_name: 'chaos-backend'
     static_configs:
       - targets: ['localhost:8081']
+    metrics_path: '/metrics'
+    scrape_interval: 5s
+
+  - job_name: 'user-management'
+    static_configs:
+      - targets: ['localhost:8082']
     metrics_path: '/metrics'
     scrape_interval: 5s
 
@@ -123,6 +130,7 @@ python scripts/check_services.py
 # Check specific service health
 curl http://localhost:8080/health
 curl http://localhost:8081/health
+curl http://localhost:8082/health
 curl http://localhost:8083/health
 ```
 
@@ -134,6 +142,7 @@ curl http://localhost:9091/api/v1/targets
 # Check service metrics endpoints
 curl http://localhost:8080/metrics
 curl http://localhost:8081/metrics
+curl http://localhost:8082/metrics
 curl http://localhost:8083/api/v1/metrics
 ```
 
